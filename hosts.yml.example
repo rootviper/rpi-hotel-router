@@ -6,6 +6,7 @@ all:
       hosts:
         192.168.100.100:
             ansible_host: 192.168.100.100
+            ansible_subnet_bits: 24
             ansible_port: 22
             ansible_ssh_private_key_file: /home/someuser/.ssh/ansible_rsa
             ansible_user: pi
@@ -30,4 +31,8 @@ all:
         hotspot_ssid: some-supercool-ssid
         hotspot_psk: some-supersecure-psk
         hotspot_frequency: 2452
+
+        #  Interfaces named according to MAC address
+        hotspot_wlan0_macaddr: c0:ff:ee:c0:ff:ee
+        hotspot_wlan1_macaddr: de:ad:be:ef:00:00
 
