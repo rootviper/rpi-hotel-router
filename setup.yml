@@ -1,0 +1,18 @@
+---
+- hosts:
+    - hotspots
+  roles:
+    - setup
+    - vnc
+  vars_prompt:
+    - name: "vnc_password"
+      prompt: "Create a VNC password (6-8 characters)"
+    - name: "vpn_ipaddr"
+      prompt: "Enter the OpenVPN server IP address"
+      private: no
+    - name: "vpn_port"
+      prompt: "Enter the OpenVPN server UDP port"
+      private: no
+  gather_facts: yes
+  become: true
+

@@ -1,0 +1,82 @@
+---
+
+- name: Templatize /etc/dhcp/dhcpd.conf
+  template:
+    src: etc/dhcp/dhcpd.conf.j2
+    dest: /etc/dhcp/dhcpd.conf
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Templatize /etc/iptables.rules
+  template:
+    src: etc/iptables.rules.j2
+    dest: /etc/iptables.rules
+    owner: root
+    group: root
+    mode: '0600'
+
+- name: Templatize /etc/ssh/sshd_config
+  template:
+    src: etc/ssh/sshd_config.j2
+    dest: /etc/ssh/sshd_config
+    owner: root
+    group: root
+    mode: '0400'
+
+- name: Templatize /etc/systemd/network/eth0.network
+  template:
+    src: etc/systemd/network/eth0.network.j2
+    dest: /etc/systemd/network/eth0.network
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Templatize /etc/systemd/network/wlan0.network
+  template:
+    src: etc/systemd/network/wlan0.network.j2
+    dest: /etc/systemd/network/wlan0.network
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Templatize /etc/systemd/network/10-wlan0.link
+  template:
+    src: etc/systemd/network/10-wlan0.link.j2
+    dest: /etc/systemd/network/10-wlan0.link
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Templatize /etc/systemd/network/10-wlan1.link
+  template:
+    src: etc/systemd/network/10-wlan1.link.j2
+    dest: /etc/systemd/network/10-wlan1.link
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Templatize /etc/systemd/timesyncd.conf
+  template:
+    src: etc/systemd/timesyncd.conf.j2
+    dest: /etc/systemd/timesyncd.conf
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Templatize /etc/systemd/network/wlan0.network
+  template:
+    src: etc/systemd/network/wlan0.network.j2
+    dest: /etc/systemd/network/wlan0.network
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Templatize /etc/wpa_supplicant/wpa_supplicant_wlan0.conf
+  template:
+    src: etc/wpa_supplicant/wpa_supplicant_wlan0.conf.j2
+    dest: /etc/wpa_supplicant/wpa_supplicant_wlan0.conf
+    owner: root
+    group: root
+    mode: '0644'
+

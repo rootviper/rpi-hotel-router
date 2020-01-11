@@ -1,0 +1,5 @@
+---
+
+- name: Generate localization files
+  command: /usr/sbin/locale-gen
+

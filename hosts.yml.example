@@ -1,0 +1,33 @@
+---
+
+all:
+  children:
+    hotspots:
+      hosts:
+        192.168.100.100:
+            ansible_host: 192.168.100.100
+            ansible_port: 22
+            ansible_ssh_private_key_file: /home/someuser/.ssh/ansible_rsa
+            ansible_user: pi
+      vars:
+        username: pi
+        ntp_ipaddr: 162.159.200.123
+        vnc_client_ipaddr: 192.168.100.1
+
+        #  Values pertaining to the hotspot interface (wlan0)
+        hotspot_ipaddr: 10.10.10.1
+        hotspot_nw_addr: 10.10.10.0
+        hotspot_broadcast: 10.10.10.255
+        hotspot_subnet_bits: 24
+        hotspot_subnet_mask: 255.255.255.0
+
+        #  Values pertaining to the hotspot DHCP server
+        hotspot_dhcp_pool_start: 10.10.10.100
+        hotspot_dhcp_pool_end: 10.10.10.199
+        hotspot_dns_ipaddr: 9.9.9.9
+
+        #  Values pertaining to the WPA2 hotspot
+        hotspot_ssid: some-supercool-ssid
+        hotspot_psk: some-supersecure-psk
+        hotspot_frequency: 2452
+

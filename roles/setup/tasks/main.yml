@@ -1,0 +1,12 @@
+---
+
+- include: install_packages.yml
+- include: remove_packages.yml
+- include: upgrade_packages.yml
+- include: templatize_files.yml
+- include: copy_files.yml
+- include: modify_configs.yml
+- include: modify_localization.yml
+- include: manage_services.yml
+- include: enable_ip_forwarding.yml
+

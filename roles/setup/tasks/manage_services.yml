@@ -1,0 +1,35 @@
+---
+
+- name: Enable services
+  systemd:
+    name: "{{ item }}"
+    enabled: yes
+  with_items:
+    - iptables.service
+    - isc-dhcp-server.service
+    - openvpn-client@client.service
+    - systemd-networkd.service
+    - wpa_supplicant@wlan1.service
+    - wpa_supplicant@wlan0.service
+
+- name: Disable services
+  systemd:
+    name:  "{{ item }}"
+    enabled: no
+    state: stopped
+  with_items:
+    - avahi-daemon.service
+    - networking.service
+    - openvpn.service
+    - rpi-display-backlight.service
+    - rsync.service
+    - sshswitch.service
+
+- name: Set default boot target to multi-user
+  file:
+    src: /lib/systemd/system/multi-user.target
+    dest: /etc/systemd/system/default.target
+    owner: root
+    group: root
+    state: link
+

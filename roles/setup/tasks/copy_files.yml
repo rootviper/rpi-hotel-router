@@ -1,0 +1,66 @@
+---
+
+- name: Copy /etc/default/isc-dhcp-server
+  copy:
+    src: etc/default/isc-dhcp-server
+    dest: /etc/default/isc-dhcp-server
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Copy /etc/network/if-pre-up.d/iptables
+  copy:
+    src: etc/network/if-pre-up.d/iptables
+    dest: /etc/network/if-pre-up.d/iptables
+    owner: root
+    group: root
+    mode: '0700'
+
+- name: Copy /etc/systemd/network/wlan1.network
+  copy:
+    src: etc/systemd/network/wlan1.network
+    dest: /etc/systemd/network/wlan1.network
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Copy /etc/systemd/system/wpa_supplicant@wlan0.service
+  copy:
+    src: etc/systemd/system/wpa_supplicant@wlan0.service
+    dest: /etc/systemd/system/wpa_supplicant@wlan0.service
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Copy /etc/systemd/system/wpa_supplicant@wlan1.service
+  copy:
+    src: etc/systemd/system/wpa_supplicant@wlan1.service
+    dest: /etc/systemd/system/wpa_supplicant@wlan1.service
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Copy /etc/wpa_supplicant/wpa_supplicant_wlan1.conf
+  copy:
+    src: etc/wpa_supplicant/wpa_supplicant_wlan1.conf
+    dest: /etc/wpa_supplicant/wpa_supplicant_wlan1.conf
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Copy /usr/local/bin/iptables.sh
+  copy:
+    src: usr/local/bin/iptables.sh
+    dest: /usr/local/bin/iptables.sh
+    owner: root
+    group: root
+    mode: '0700'
+
+- name: Copy /etc/systemd/system/iptables.service
+  copy:
+    src: etc/systemd/system/iptables.service
+    dest: /etc/systemd/system/iptables.service
+    owner: root
+    group: root
+    mode: '0644'
+

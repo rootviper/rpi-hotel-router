@@ -1,0 +1,9 @@
+ctrl_interface=DIR=/run/wpa_supplicant GROUP=netdev
+
+network={
+    ssid="{{ hotspot_ssid }}"
+    mode=2
+    key_mgmt=WPA-PSK
+    psk="{{ hotspot_psk }}"
+    frequency={{ hotspot_frequency }}
+}

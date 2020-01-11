@@ -1,0 +1,8 @@
+[Match]
+Name=wlan1
+
+[Network]
+DHCP=both
+
+[DHCP]
+RouteMetric=30

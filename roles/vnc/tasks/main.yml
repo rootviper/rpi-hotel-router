@@ -1,0 +1,6 @@
+---
+
+- include: install_packages.yml
+- include: configure_vnc.yml
+- include: manage_services.yml
+

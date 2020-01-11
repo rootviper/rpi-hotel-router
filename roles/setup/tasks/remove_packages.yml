@@ -1,0 +1,61 @@
+---
+- name: Remove packages
+  apt:
+    name: "{{ packages }}"
+    state: absent
+  vars:
+    packages:
+      - alsa-utils
+      - bluez
+      - bluez-firmware
+      - cpp-8
+      - dpkg-dev
+      - fakeroot
+      - freetype2-doc
+      - g++
+      - g++-8
+      - gcc
+      - gcc-4.9-base:armhf
+      - gcc-5-base:armhf
+      - gcc-6-base:armhf
+      - gcc-7-base:armhf
+      - gcc-8
+      - geoip-database
+      - iso-codes
+      - javascript-common
+      - libalgorithm-diff-perl
+      - libalgorithm-diff-xs-perl
+      - libalgorithm-merge-perl
+      - libasan5
+      - libasound2
+      - libasound2-data
+      - libc6-dev:armhf
+      - libcc1-0
+      - libc-dev-bin
+      - libfakeroot
+      - libfftw3-single3
+      - libfreetype6
+      - libfreetype6-dev
+      - libgcc-8-dev
+      - libgomp1
+      - libisl19
+      - libjs-jquery
+      - libmnl-dev
+      - libmpc3
+      - libmpfr6
+      - libpng16-16
+      - libpng-dev
+      - libpng-tools
+      - libraspberrypi-dev
+      - libraspberrypi-doc
+      - libsamplerate0
+      - libstdc++-8-dev:armhf
+      - libubsan1
+      - linux-libc-dev:armhf
+      - manpages-dev
+      - nano
+      - pi-bluetooth
+      - raspi-config
+      - triggerhappy
+      - zlib1g-dev:armhf
+

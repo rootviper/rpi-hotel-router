@@ -1,0 +1,2 @@
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="{{ hotspot_wlan0_macaddr }}", ATTR{dev_id}=="0x0", ATTR{type}=="1", NAME="wlan0"
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="{{ hotspot_wlan1_macaddr }}", ATTR{dev_id}=="0x0", ATTR{type}=="1", NAME="wlan1"

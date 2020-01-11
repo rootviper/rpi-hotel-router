@@ -1,0 +1,19 @@
+---
+
+- name: Update the package cache
+  apt:
+    update_cache: yes
+
+- name: Install packages
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+      - firefox-esr
+      - python-pexpect
+      - tightvncserver
+      - xfce4
+      - xfce4-terminal
+      - xorg
+    state: present
+

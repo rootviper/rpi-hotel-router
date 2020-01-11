@@ -1,0 +1,45 @@
+---
+
+- name: Update /etc/default/locale
+  lineinfile:
+    path: /etc/default/locale
+    regexp: '^LANG'
+    line: LANG=en_US.UTF-8
+
+- name: Select default locale
+  debconf:
+    name: locales
+    question: locales/default_environment_locale
+    value: en_US.UTF-8
+    vtype: select
+  notify:
+    - Generate localization files
+
+- name: Update /etc/locale.gen
+  lineinfile:
+    dest: /etc/locale.gen
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+    state: "{{ item.state }}"
+  with_items:
+    - { regexp: '^en_GB ISO-8859-1', line: '# en_GB ISO-8859-1', state: present }
+    - { regexp: '^en_GB.ISO-8859-15 ISO-8859-15', line: '# en_GB.ISO-8859-15 ISO-8859-15', state: present }
+    - { regexp: '^en_GB.UTF-8 UTF-8', line: '# en_GB.UTF-8 UTF-8', state: present }
+    - { regexp: '^# en_US ISO-8859-1', line: 'en_US ISO-8859-1', state: present }
+    - { regexp: '^# en_US.ISO-8859-15 ISO-8859-15', line: 'en_US.ISO-8859-15 ISO-8859-15', state: present }
+    - { regexp: '^# en_US.UTF-8 UTF-8', line: 'en_US.UTF-8 UTF-8', state: present }
+  notify:
+    - Generate localization files
+
+- name: Modify keyboard model
+  lineinfile:
+    path: /etc/default/keyboard
+    regexp: '^XKBMODEL'
+    line: XKBMODEL="pc104"
+
+- name: Modify keyboard layout
+  lineinfile:
+    path: /etc/default/keyboard
+    regexp: '^XKBLAYOUT'
+    line: XKBLAYOUT="us"
+

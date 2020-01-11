@@ -1,0 +1,44 @@
+---
+
+- name: Create the user's .vnc directory
+  file:
+    path: /home/{{ username }}/.vnc
+    state: directory
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: '0700'
+
+- name: Copy VNC xstartup file into the user directory
+  copy:
+    src: xstartup
+    dest: "/home/{{ username }}/.vnc/xstartup"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: '0700'
+
+- name: Copy VNC systemd unit file
+  copy:
+    src: vncserver@.service
+    dest: "/etc/systemd/system/vncserver@.service"
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Create VNC passwd file
+  expect:
+    command: vncpasswd "/home/{{ username }}/.vnc/passwd"
+    responses:
+      Password: "{{ vnc_password }}"
+      Verify: "{{ vnc_password }}"
+      Would you like to enter a view-only password (y/n)? : n
+    creates: "/home/{{ username }}/.vnc/passwd"
+  no_log: true
+
+- name: Modify the file properties of the VNC passwd file
+  file:
+    path: "/home/{{ username }}/.vnc/passwd"
+    state: file
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: '0400'
+

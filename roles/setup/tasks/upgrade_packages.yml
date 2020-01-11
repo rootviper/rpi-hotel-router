@@ -1,0 +1,10 @@
+---
+
+- name: Upgrade packages
+  apt:
+    upgrade: "yes"
+
+- name: Remove dependencies that are no longer required
+  apt:
+    autoremove: yes
+

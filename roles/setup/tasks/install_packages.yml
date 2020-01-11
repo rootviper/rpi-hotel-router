@@ -1,0 +1,20 @@
+---
+
+- name: Update the package cache
+  apt:
+    update_cache: yes
+
+- name: Install packages
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+      - dbus-x11
+      - firmware-ralink
+      - isc-dhcp-server
+      - ntpdate
+      - openvpn
+      - tree
+      - vim
+    state: present
+

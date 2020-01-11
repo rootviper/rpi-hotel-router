@@ -1,0 +1,8 @@
+---
+
+- name: Ensure that dhcpcd does not run on eth0 and wlan0
+  lineinfile:
+    path: /etc/dhcpcd.conf
+    regexp: '^denyinterfaces'
+    line: denyinterfaces eth0,wlan0
+
